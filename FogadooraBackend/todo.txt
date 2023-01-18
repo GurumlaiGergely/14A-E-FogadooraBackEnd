@@ -1,0 +1,21 @@
+Előkészületek:
+==============
+1. Backend vizsga starter repo klónozása, átnevezése, npm i
+2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
+3. Csoportos átnevezések 5db:
+    FogadoOra, Idopontok, Tanar, FK_idopont, /api/fogadoora, /api/fogadoora *
+    * Csak az "fogadoora" és "fogadoora" legyen keresve-cserélve Postman végett!
+4. Minta db_n.json állomány törlése, forrás JSON ("N" oldali tábla) másolása, átnevezése: "db_n.json" -ra
+
+Feladatmegoldás:
+================
+1. "1" oldali tábla modelljének aktualizálása: oneside.model.ts
+2. "N" oldali tábla modelljének aktualizálása: nside.model.ts
+3. "1" oldali tábla elkészítése: "db_1.json"
+4. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
+5. Adatbázis, táblák létrehozása, mintaadatok feltöltése: .\db.bat
+6. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
+7. Postman vagy Thunder Client teszt kollekció importálása
+8. "N" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
+9. "1" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
+
