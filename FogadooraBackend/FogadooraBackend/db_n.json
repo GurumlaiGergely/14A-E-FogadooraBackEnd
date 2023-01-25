@@ -1,0 +1,968 @@
+[
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "4",
+		"ido": "2017.10.28-18:48"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "6",
+		"ido": "2017.10.28-18:51"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "5",
+		"ido": "2017.10.28-19:56"
+	},
+	{
+		"vezetekNev": "Barna",
+		"keresztNev": "Eszter",
+		"FK_idopont": "4",
+		"ido": "2017.10.28-19:57"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "5",
+		"ido": "2017.10.28-19:58"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "7",
+		"ido": "2017.10.28-19:58"
+	},
+	{
+		"vezetekNev": "Zalai",
+		"keresztNev": "Andrea",
+		"FK_idopont": "7",
+		"ido": "2017.10.28-20:00"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "10",
+		"ido": "2017.10.28-20:45"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "12",
+		"ido": "2017.10.28-20:46"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "7",
+		"ido": "2017.10.28-21:30"
+	},
+	{
+		"vezetekNev": "Szamos",
+		"keresztNev": "Szilvia",
+		"FK_idopont": "5",
+		"ido": "2017.10.28-21:31"
+	},
+	{
+		"vezetekNev": "Barna",
+		"keresztNev": "Eszter",
+		"FK_idopont": "9",
+		"ido": "2017.10.28-21:34"
+	},
+	{
+		"vezetekNev": "Hantos",
+		"keresztNev": "Hedvig",
+		"FK_idopont": "11",
+		"ido": "2017.10.28-21:35"
+	},
+	{
+		"vezetekNev": "Uti",
+		"keresztNev": "Lajos",
+		"FK_idopont": "2",
+		"ido": "2017.10.28-22:08"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "3",
+		"ido": "2017.10.28-22:11"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "4",
+		"ido": "2017.10.28-22:14"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "5",
+		"ido": "2017.10.28-22:18"
+	},
+	{
+		"vezetekNev": "Zalai",
+		"keresztNev": "Tamara",
+		"FK_idopont": "7",
+		"ido": "2017.10.28-22:22"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "2",
+		"ido": "2017.10.28-22:42"
+	},
+	{
+		"vezetekNev": "Neumann",
+		"keresztNev": "Nikolett",
+		"FK_idopont": "4",
+		"ido": "2017.10.28-22:43"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "1",
+		"ido": "2017.10.28-22:44"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "2",
+		"ido": "2017.10.28-22:44"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "5",
+		"ido": "2017.10.28-22:45"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "3",
+		"ido": "2017.10.28-22:45"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "6",
+		"ido": "2016.10.28-22:47"
+	},
+	{
+		"vezetekNev": "Keller",
+		"keresztNev": "Orsolya",
+		"FK_idopont": "8",
+		"ido": "2017.10.28-22:57"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "8",
+		"ido": "2017.10.28-23:12"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "11",
+		"ido": "2017.10.28-23:16"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "3",
+		"ido": "2017.10.28-23:18"
+	},
+	{
+		"vezetekNev": "Reszet",
+		"keresztNev": "Elek",
+		"FK_idopont": "1",
+		"ido": "2017.10.28-23:32"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "2",
+		"ido": "2017.10.28-23:34"
+	},
+	{
+		"vezetekNev": "Keller",
+		"keresztNev": "Katalin",
+		"FK_idopont": "4",
+		"ido": "2017.10.28-23:35"
+	},
+	{
+		"vezetekNev": "Barna",
+		"keresztNev": "Eszter",
+		"FK_idopont": "3",
+		"ido": "2017.10.28-23:36"
+	},
+	{
+		"vezetekNev": "Matyi",
+		"keresztNev": "Marcell",
+		"FK_idopont": "8",
+		"ido": "2017.10.29-07:27"
+	},
+	{
+		"vezetekNev": "Bicskei",
+		"keresztNev": "Bertold",
+		"FK_idopont": "10",
+		"ido": "2017.10.29-07:28"
+	},
+	{
+		"vezetekNev": "Szalai",
+		"keresztNev": "Levente",
+		"FK_idopont": "7",
+		"ido": "2017.10.29-07:46"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "9",
+		"ido": "2017.10.29-07:47"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "10",
+		"ido": "2017.10.29-07:47"
+	},
+	{
+		"vezetekNev": "Keller",
+		"keresztNev": "Katalin",
+		"FK_idopont": "11",
+		"ido": "2017.10.29-07:48"
+	},
+	{
+		"vezetekNev": "Fekete",
+		"keresztNev": "Csenge",
+		"FK_idopont": "12",
+		"ido": "2017.10.29-07:49"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "6",
+		"ido": "2017.10.29-07:50"
+	},
+	{
+		"vezetekNev": "Szamos",
+		"keresztNev": "Szilvia",
+		"FK_idopont": "8",
+		"ido": "2017.10.29-07:50"
+	},
+	{
+		"vezetekNev": "Szalai",
+		"keresztNev": "Levente",
+		"FK_idopont": "9",
+		"ido": "2017.10.29-08:44"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "11",
+		"ido": "2017.10.29-08:47"
+	},
+	{
+		"vezetekNev": "Hantos",
+		"keresztNev": "Hedvig",
+		"FK_idopont": "12",
+		"ido": "2017.10.29-08:52"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "2",
+		"ido": "2017.10.29-09:32"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "6",
+		"ido": "2017.10.29-09:35"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "4",
+		"ido": "2017.10.29-09:40"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "9",
+		"ido": "2017.10.29-10:40"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "7",
+		"ido": "2017.10.29-10:41"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "11",
+		"ido": "2017.10.29-10:42"
+	},
+	{
+		"vezetekNev": "Fekete",
+		"keresztNev": "Csenge",
+		"FK_idopont": "10",
+		"ido": "2017.10.29-10:48"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "7",
+		"ido": "2017.10.29-10:48"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "1",
+		"ido": "2017.10.29-12:52"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "12",
+		"ido": "2017.10.29-14:54"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "11",
+		"ido": "2017.10.29-14:55"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "9",
+		"ido": "2017.10.29-14:58"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "10",
+		"ido": "2017.10.29-14:59"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "9",
+		"ido": "2017.10.29-16:13"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "7",
+		"ido": "2017.10.29-16:13"
+	},
+	{
+		"vezetekNev": "Szabadi",
+		"keresztNev": "Szilvia",
+		"FK_idopont": "12",
+		"ido": "2017.10.29-16:14"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "1",
+		"ido": "2017.10.29-18:31"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "1",
+		"ido": "2017.10.29-19:23"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "6",
+		"ido": "2017.10.29-19:24"
+	},
+	{
+		"vezetekNev": "Zalai",
+		"keresztNev": "Andrea",
+		"FK_idopont": "3",
+		"ido": "2017.10.29-19:27"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "6",
+		"ido": "2017.10.29-20:31"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "4",
+		"ido": "2017.10.29-20:32"
+	},
+	{
+		"vezetekNev": "Matyi",
+		"keresztNev": "Marcell",
+		"FK_idopont": "7",
+		"ido": "2017.10.29-20:32"
+	},
+	{
+		"vezetekNev": "Keller",
+		"keresztNev": "Katalin",
+		"FK_idopont": "9",
+		"ido": "2017.10.29-20:33"
+	},
+	{
+		"vezetekNev": "Fodor",
+		"keresztNev": "Zsuzsanna",
+		"FK_idopont": "1",
+		"ido": "2017.10.29-20:52"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "8",
+		"ido": "2017.10.29-20:55"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "12",
+		"ido": "2017.10.29-21:01"
+	},
+	{
+		"vezetekNev": "Pesti",
+		"keresztNev": "Soma",
+		"FK_idopont": "10",
+		"ido": "2017.10.29-21:05"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "3",
+		"ido": "2017.10.29-21:07"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "11",
+		"ido": "2017.10.29-21:09"
+	},
+	{
+		"vezetekNev": "Schiff",
+		"keresztNev": "Alajos",
+		"FK_idopont": "9",
+		"ido": "2017.10.29-21:12"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "4",
+		"ido": "2017.10.29-23:16"
+	},
+	{
+		"vezetekNev": "Reszet",
+		"keresztNev": "Elek",
+		"FK_idopont": "10",
+		"ido": "2017.10.30-06:25"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "8",
+		"ido": "2017.10.30-06:25"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "12",
+		"ido": "2017.10.30-06:26"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "6",
+		"ido": "2017.10.30-06:27"
+	},
+	{
+		"vezetekNev": "Szalai",
+		"keresztNev": "Levente",
+		"FK_idopont": "1",
+		"ido": "2017.10.30-07:09"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "2",
+		"ido": "2017.10.30-07:10"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "5",
+		"ido": "2017.10.30-07:28"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "1",
+		"ido": "2017.10.30-07:29"
+	},
+	{
+		"vezetekNev": "Lakatos",
+		"keresztNev": "Levente",
+		"FK_idopont": "3",
+		"ido": "2017.10.30-07:30"
+	},
+	{
+		"vezetekNev": "Hantos",
+		"keresztNev": "Hedvig",
+		"FK_idopont": "7",
+		"ido": "2017.10.30-07:34"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "8",
+		"ido": "2017.10.30-07:54"
+	},
+	{
+		"vezetekNev": "Csorba",
+		"keresztNev": "Ede",
+		"FK_idopont": "2",
+		"ido": "2017.10.30-07:57"
+	},
+	{
+		"vezetekNev": "Lakatos",
+		"keresztNev": "Levente",
+		"FK_idopont": "1",
+		"ido": "2017.10.30-08:24"
+	},
+	{
+		"vezetekNev": "Szalai",
+		"keresztNev": "Levente",
+		"FK_idopont": "2",
+		"ido": "2017.10.30-08:25"
+	},
+	{
+		"vezetekNev": "Szalai",
+		"keresztNev": "Levente",
+		"FK_idopont": "10",
+		"ido": "2017.10.30-14:31"
+	},
+	{
+		"vezetekNev": "Zalai",
+		"keresztNev": "Andrea",
+		"FK_idopont": "8",
+		"ido": "2017.10.30-17:58"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "1",
+		"ido": "2017.10.30-17:58"
+	},
+	{
+		"vezetekNev": "Hantos",
+		"keresztNev": "Hedvig",
+		"FK_idopont": "2",
+		"ido": "2017.10.30-17:58"
+	},
+	{
+		"vezetekNev": "Szamos",
+		"keresztNev": "Szilvia",
+		"FK_idopont": "4",
+		"ido": "2017.10.30-18:00"
+	},
+	{
+		"vezetekNev": "Barna",
+		"keresztNev": "Eszter",
+		"FK_idopont": "5",
+		"ido": "2017.10.30-18:04"
+	},
+	{
+		"vezetekNev": "Nyilas",
+		"keresztNev": "Eszter",
+		"FK_idopont": "7",
+		"ido": "2017.10.31-08:26"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "10",
+		"ido": "2017.10.31-08:32"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "2",
+		"ido": "2017.10.31-10:27"
+	},
+	{
+		"vezetekNev": "Zalai",
+		"keresztNev": "Andrea",
+		"FK_idopont": "4",
+		"ido": "2017.10.31-10:28"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "7",
+		"ido": "2017.10.31-18:20"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "12",
+		"ido": "2017.10.31-18:24"
+	},
+	{
+		"vezetekNev": "Matyi",
+		"keresztNev": "Marcell",
+		"FK_idopont": "9",
+		"ido": "2017.10.31-18:24"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "1",
+		"ido": "2017.11.01-10:35"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "6",
+		"ido": "2017.11.01-20:44"
+	},
+	{
+		"vezetekNev": "Keller",
+		"keresztNev": "Katalin",
+		"FK_idopont": "8",
+		"ido": "2017.11.01-20:46"
+	},
+	{
+		"vezetekNev": "Matyi",
+		"keresztNev": "Marcell",
+		"FK_idopont": "10",
+		"ido": "2017.11.01-20:47"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "4",
+		"ido": "2017.11.01-20:48"
+	},
+	{
+		"vezetekNev": "Olasz",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "11",
+		"ido": "2017.11.01-20:50"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "5",
+		"ido": "2017.11.01-22:03"
+	},
+	{
+		"vezetekNev": "Neumann",
+		"keresztNev": "Nikolett",
+		"FK_idopont": "12",
+		"ido": "2017.11.02-08:05"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "11",
+		"ido": "2017.11.02-08:06"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "2",
+		"ido": "2017.11.02-08:41"
+	},
+	{
+		"vezetekNev": "Keller",
+		"keresztNev": "Katalin",
+		"FK_idopont": "3",
+		"ido": "2017.11.02-08:44"
+	},
+	{
+		"vezetekNev": "Matyi",
+		"keresztNev": "Marcell",
+		"FK_idopont": "4",
+		"ido": "2017.11.02-08:45"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "3",
+		"ido": "2017.11.02-10:40"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "2",
+		"ido": "2017.11.02-10:41"
+	},
+	{
+		"vezetekNev": "Hantos",
+		"keresztNev": "Hedvig",
+		"FK_idopont": "5",
+		"ido": "2017.11.02-10:44"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "7",
+		"ido": "2017.11.02-10:45"
+	},
+	{
+		"vezetekNev": "Reszet",
+		"keresztNev": "Elek",
+		"FK_idopont": "9",
+		"ido": "2017.11.02-11:59"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "7",
+		"ido": "2017.11.02-12:01"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "8",
+		"ido": "2017.11.02-12:03"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "10",
+		"ido": "2017.11.02-12:05"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "3",
+		"ido": "2017.11.02-14:18"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "8",
+		"ido": "2017.11.02-14:19"
+	},
+	{
+		"vezetekNev": "Hantos",
+		"keresztNev": "Hedvig",
+		"FK_idopont": "1",
+		"ido": "2017.11.02-14:20"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "4",
+		"ido": "2017.11.02-14:21"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "3",
+		"ido": "2017.11.02-14:32"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "1",
+		"ido": "2017.11.02-15:20"
+	},
+	{
+		"vezetekNev": "Magos",
+		"keresztNev": "Magdolna",
+		"FK_idopont": "1",
+		"ido": "2017.11.02-4"
+	},
+	{
+		"vezetekNev": "Barna",
+		"keresztNev": "Eszter",
+		"FK_idopont": "6",
+		"ido": "2017.11.02-16:31"
+	},
+	{
+		"vezetekNev": "Uti",
+		"keresztNev": "Lajos",
+		"FK_idopont": "6",
+		"ido": "2017.11.03-08:21"
+	},
+	{
+		"vezetekNev": "Hantos",
+		"keresztNev": "Hedvig",
+		"FK_idopont": "10",
+		"ido": "2017.11.03-09:30"
+	},
+	{
+		"vezetekNev": "Neumann",
+		"keresztNev": "Nikolett",
+		"FK_idopont": "1",
+		"ido": "2017.11.03-09:57"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "3",
+		"ido": "2017.11.03-10:07"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Marcell",
+		"FK_idopont": "9",
+		"ido": "2017.11.03-12:49"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "5",
+		"ido": "2017.11.03-18:58"
+	},
+	{
+		"vezetekNev": "Reszet",
+		"keresztNev": "Elek",
+		"FK_idopont": "8",
+		"ido": "2017.11.04-19:54"
+	},
+	{
+		"vezetekNev": "Papp",
+		"keresztNev": "Lili",
+		"FK_idopont": "7",
+		"ido": "2017.11.04-19:54"
+	},
+	{
+		"vezetekNev": "Barna",
+		"keresztNev": "Eszter",
+		"FK_idopont": "10",
+		"ido": "2017.11.04-19:55"
+	},
+	{
+		"vezetekNev": "Keller",
+		"keresztNev": "Katalin",
+		"FK_idopont": "6",
+		"ido": "2017.11.04-19:55"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "11",
+		"ido": "2017.11.04-22:34"
+	},
+	{
+		"vezetekNev": "Matyi",
+		"keresztNev": "Marcell",
+		"FK_idopont": "1",
+		"ido": "2017.11.05-07:52"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "8",
+		"ido": "2017.11.05-07:53"
+	},
+	{
+		"vezetekNev": "Rozman",
+		"keresztNev": "Brigitta",
+		"FK_idopont": "4",
+		"ido": "2017.11.05-07:56"
+	},
+	{
+		"vezetekNev": "Rozman",
+		"keresztNev": "Brigitta",
+		"FK_idopont": "1",
+		"ido": "2017.11.05-11:15"
+	},
+	{
+		"vezetekNev": "Matyi",
+		"keresztNev": "Marcell",
+		"FK_idopont": "2",
+		"ido": "2017.11.05-11:18"
+	},
+	{
+		"vezetekNev": "Nagy",
+		"keresztNev": "Ferenc",
+		"FK_idopont": "6",
+		"ido": "2017.11.05-11:28"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "8",
+		"ido": "2017.11.05-11:28"
+	},
+	{
+		"vezetekNev": "Szalai",
+		"keresztNev": "Levente",
+		"FK_idopont": "11",
+		"ido": "2017.11.05-11:31"
+	},
+	{
+		"vezetekNev": "Reszet",
+		"keresztNev": "Elek",
+		"FK_idopont": "4",
+		"ido": "2017.11.05-11:36"
+	},
+	{
+		"vezetekNev": "Beke",
+		"keresztNev": "Bianka",
+		"FK_idopont": "6",
+		"ido": "2017.11.05-12:42"
+	},
+	{
+		"vezetekNev": "Reszet",
+		"keresztNev": "Elek",
+		"FK_idopont": "7",
+		"ido": "2017.11.05-20:05"
+	},
+	{
+		"vezetekNev": "Barna",
+		"keresztNev": "Eszter",
+		"FK_idopont": "8",
+		"ido": "2017.11.05-20:05"
+	},
+	{
+		"vezetekNev": "Neumann",
+		"keresztNev": "Nikolett",
+		"FK_idopont": "10",
+		"ido": "2017.11.05-20:06"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "9",
+		"ido": "2017.11.05-20:06"
+	},
+	{
+		"vezetekNev": "Reszet",
+		"keresztNev": "Elek",
+		"FK_idopont": "6",
+		"ido": "2017.11.06-06:52"
+	},
+	{
+		"vezetekNev": "Veres",
+		"keresztNev": "Gergely",
+		"FK_idopont": "8",
+		"ido": "2017.11.06-06:52"
+	},
+	{
+		"vezetekNev": "Zalai",
+		"keresztNev": "Andrea",
+		"FK_idopont": "1",
+		"ido": "2017.11.06-07:56"
+	},
+	{
+		"vezetekNev": "Dunai",
+		"keresztNev": "Demeter",
+		"FK_idopont": "9",
+		"ido": "2017.11.06-07:57"
+	}
+]
