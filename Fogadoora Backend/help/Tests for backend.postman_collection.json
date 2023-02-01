@@ -1,0 +1,558 @@
+{
+	"info": {
+		"_postman_id": "58477add-0546-4efa-a3a6-cdb7daac4f27",
+		"name": "Tests for backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"student001\",\r\n    \"email\": \"student001@jedlik.eu\",\r\n    \"password\": \"student001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var c = pm.cookies.get('Authorization')\r",
+									"pm.collectionVariables.set('cookie', c)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"student001@jedlik.eu\",\r\n    \"password\": \"student001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var c = \"\"\r",
+									"pm.collectionVariables.set('cookie', c)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/61b5f048f39e4edcf5b8a3ca",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"61b5f048f39e4edcf5b8a3ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Posts of Logged User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/posts/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Posts of User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/posts/61b5f048f39e4edcf5b8a3ca",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"posts",
+								"61b5f048f39e4edcf5b8a3ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": {\r\n        \"city\": \"Győr\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/61b5f09cf39e4edcf5b8a3d4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"61b5f09cf39e4edcf5b8a3d4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/61b5f09cf39e4edcf5b8a3d4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"61b5f09cf39e4edcf5b8a3d4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Get All Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Post by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/61b63504f39e4edcf5b8a41b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"61b63504f39e4edcf5b8a41b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Paginated Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/0/5/content/1/2049",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"0",
+								"5",
+								"content",
+								"1",
+								"2049"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Post",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"AZ OLTALMAZÓ 2021\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/posts/61b63504f39e4edcf5b8a41b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"61b63504f39e4edcf5b8a41b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Post",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/posts/61b63504f39e4edcf5b8a41b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts",
+								"61b63504f39e4edcf5b8a41b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"author\": {\r\n        \"$oid\": \"61b5f048f39e4edcf5b8a3ca\"\r\n    },\r\n    \"content\": \"A veterán Jim Hanson Arizonában, a mexikói határ mentén él. A férfi nehéz időszakot tudhat maga mögött, nemrég hunyt el ugyanis imádott felesége rákban. Jimet a gyászból két illegális bevándorló zökkenti ki: az anya-fiú párosra véletlenül bukkanó exkatona egy lövöldözésbe keveredik a mexikói kartell tagjaival, mely során egy eltévedt golyó végez az édesanyával. Jim így, ha vonakodva is, de szárnyai alá veszi a fiút, Miguelt, hogy elvigye őt Chicagóban élő rokonaihoz. Ám a kartell legelvetemültebb tagjai továbbra is ott vannak a nyomukban…\",\r\n    \"title\": \"Az oltalmazó 2021\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/posts",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recipes",
+			"item": [
+				{
+					"name": "Get All Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/recipes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recipe by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/recipes/61daf48ba5775848e99f555b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"recipes",
+								"61daf48ba5775848e99f555b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Paginated Recipes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/recipes/0/5/discription/1/paradicsom",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"recipes",
+								"0",
+								"5",
+								"discription",
+								"1",
+								"paradicsom"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify Recipe",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageURL\": \"https://www.mindmegette.hu/images/240/L/lead_L_crop_201902011306_penne-arrabbiata-csirkes.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/recipes/61daf48ba5775848e99f555b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"recipes",
+								"61daf48ba5775848e99f555b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Recipe",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/recipes/61daf48ba5775848e99f555b",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"recipes",
+								"61daf48ba5775848e99f555b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Recipe",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"author\": {\r\n        \"$oid\": \"61b5ea14f39e4edcf5b8a3bd\"\r\n    },\r\n    \"recipeName\": \"PENNE ALL ARRABBIATA CSIRKEMELLEL\",\r\n    \"imageURL\": \"https://www.mindmegette.hu/images/240/O/penne-arrabbiata-csirkes.jpg\",\r\n    \"description\": \"A tésztát a csomágolásán látható utasítás szerint forró, sós vízbe kifőzzük és leszűrjük. \\nA finomra vágott hagymákat olajon megdinszteljük, majd hozzáadjuk a kockára vágott csirkemellet és fehéredésig pirítjuk. Sózzuk, borsozzuk, ráöntjük a paradicsomkonzervet és a vörösbort majd forrásig melegítjük.\\nHozzáadjuk a chilit, a felaprított bazsalikomot, az oregánót, végül pedig a barnacukrot és 25-30 percig főzzük, míg a csirkemell meg nem puhul, majd összekeverjük a tésztával. \",\r\n    \"ingredients\": [\r\n        \"50 dkg\\tpenne\",\r\n        \"1 db\\tvöröshagyma\",\r\n        \"4 gerezd\\tfokhagyma\",\r\n        \"30 dkg\\tcsirkemell\",\r\n        \"só\",\r\n        \"bors\",\r\n        \"1 doboz\\tkonzerv paradicsom\",\r\n        \"1 dl\\tvörösbor\",\r\n        \"chili\",\r\n        \"1 marék\\tbazsalikom\",\r\n        \"oregano\",\r\n        \"1 tk\\tbarnacukor\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/recipes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"recipes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{cookie}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Cookie",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://express-mongoose-ts-backend.herokuapp.com",
+			"disabled": true
+		},
+		{
+			"key": "cookie",
+			"value": "Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWI1ZTljMGYzOWU0ZWRjZjViOGEzYjkiLCJpYXQiOjE2NDI2MTk3NjIsImV4cCI6MTY0MjcwNjE2Mn0.0n8vByJ-6vYDv2EMeMlWY6F1H2MtrW0xDYbPmWSYbj4"
+		},
+		{
+			"key": "URL",
+			"value": "http://localhost:5000"
+		}
+	]
+}
