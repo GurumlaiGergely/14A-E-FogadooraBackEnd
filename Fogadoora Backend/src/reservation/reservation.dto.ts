@@ -5,8 +5,8 @@ export default class CreateReservationDto implements Reservation {
     @IsString()
     public Idő: string;
 
-    @IsDate()
-    public Dátum: Date;
+    @IsString()
+    public Dátum: string;
 
     @ValidateNested()
     public tanárID: CreateTeacherDto;

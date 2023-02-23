@@ -19,7 +19,7 @@ const reservationSchema = new Schema<Reservation>(
             required: true,
         },
         Dátum: {
-            type: Date,
+            type: String,
             required: true,
         },
     },

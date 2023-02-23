@@ -1,0 +1,1124 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "REST API minta backend",
+        "version": "1.0.0",
+        "description": "<img alt='HaHu' height='400px' src='https://nitslaszlo.github.io/static/hahu/Hahu.jpg' />"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000"
+        },
+        {
+            "url": "https://jedlik.cyclic.app"
+        }
+    ],
+    "paths": {
+        "/api/posts": {
+            "get": {
+                "tags": ["posts"],
+                "summary": "Összes post lekérdezése.",
+                "description": "Az összes post adatát tudjuk lekérdezni.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/recipe"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["posts"],
+                "summary": "Új post mentése.",
+                "description": "Új post mentése a 'kategoriak' táblában",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/recipe"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (Az új, elmentett kategóriával tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/recipe"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/{id}": {
+            "get": {
+                "tags": ["posts"],
+                "summary": "Egy post lekérdezése.",
+                "description": "Az id paraméterben megadott post adatait kérdezhetjük le.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A post azonosítója.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 2
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/recipe"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ezzel az azonosítóval (id) nincs post!"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["posts"],
+                "summary": "post módosítása (PATCH).",
+                "description": "A paraméterben megadott post adatait módosítja a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A PATCH metódussal módosítandó post azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 3
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/recipe"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (A módosított post adatokkal tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/recipe"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott post (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["posts"],
+                "summary": "post módosítása (PUT).",
+                "description": "A paraméterben megadott post adatait módosítja a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A PUT metódussal módosítandó post azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 3
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/recipe"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (A módosított post adataival tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/recipe"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott post (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["posts"],
+                "summary": "post törlése.",
+                "description": "A paraméterben megadott postot törli a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A törlendő post azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 99
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK (A post törölve.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "OK"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott post (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott (id) kategóriára még hivatkoznak, nem törölhető!"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/posts/{kategoriaNev}/hirdetesek": {
+            "get": {
+                "tags": ["posts"],
+                "summary": "receptek lekérdezése postnév szerint.",
+                "description": "A 'kategoriaNev' paraméterben megadott kategóriával és a post összes receptével tér vissza a végpont.",
+                "parameters": [
+                    {
+                        "name": "kategoriaNev",
+                        "description": "A post neve.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "Személyautó"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/recipe"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ebben a kategóriában (Monocikli) nem találtam receptt!"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/recipes": {
+            "get": {
+                "tags": ["recipes"],
+                "summary": "Összes recept lekérdezése.",
+                "description": "Az összes recept adatát tudjuk lekérdezni.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/user"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["recipes"],
+                "summary": "Új recept mentése.",
+                "description": "Az új recept mentése a 'hirdetesek' táblában",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (Az új, elmentett recepttel tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/recipes/{id}": {
+            "get": {
+                "tags": ["recipes"],
+                "summary": "Egy recept lekérdezése.",
+                "description": "Az id paraméterben megadott recept adatait kérdezhetjük le.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A recept azonosítója.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 2
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ezzel az azonosítóval (id) nincs recept!"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": ["recipes"],
+                "summary": "recept módosítása (PATCH).",
+                "description": "A paraméterben megadott recept adatait módosítja a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A PATCH metódussal módosítandó recept azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 3
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (A módosított receptsel tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott recept (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["recipes"],
+                "summary": "recept módosítása (PUT).",
+                "description": "A paraméterben megadott recept adatait módosítja a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A PUT metódussal módosítandó recept azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 3
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (A módosított receptsel tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott recept (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["recipes"],
+                "summary": "recept törlése.",
+                "description": "A paraméterben megadott receptt törli a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A törlendő recept azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 99
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK (A recept törölve.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "OK"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott recept (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/recipes/order/:mezo": {
+            "get": {
+                "tags": ["recipes"],
+                "summary": "Összes recept lekérdezése rendezéssel.",
+                "description": "Az összes recept adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
+                "parameters": [
+                    {
+                        "name": "mezo",
+                        "description": "Mező, amely szerint rendezni kell, a '-' karakter a mező neve előtt a csökkenő rendezést kódolja.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "-arFt"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/user"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/recipes/keyword/{keyword}": {
+            "get": {
+                "tags": ["recipes"],
+                "summary": "Kulcsszavas szűrés mindkét táblából.",
+                "description": "Azok a receptek, melyek leírásában, vagy postnevében megtalálható a megadott kulcsszó.",
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "description": "Kulcsszó, melyet keresünk a mezőkben (bárhol lehet egy-egy mezőn belül, OR kapcsolat).",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "gép"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/user"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/recipes/{offset}/{limit}/{field}": {
+            "get": {
+                "tags": ["recipes"],
+                "summary": "Paginált adatok lekérése.",
+                "description": "receptek lekérdezése lapozáshoz.",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "description": "Ennyi rekordot hagyunk el (skip) a lekérdezés 'elejéről'.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Ennyi rekordot küld (take) maximum az API",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "field",
+                        "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "-cim"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number",
+                                            "description": "Az összes rekord száma.",
+                                            "example": "16"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "description": "A maximum {limit} számú rekord.",
+                                            "items": {
+                                                "$ref": "#/components/schemas/user"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/recipes/{offset}/{limit}/{field}/{filter}": {
+            "get": {
+                "tags": ["recipes"],
+                "summary": "Paginált adatok lekérése szűréssel.",
+                "description": "receptek lekérdezése lapozáshoz szűréssel.",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "description": "Ennyi rekordot hagyunk el (skip) a lekérdezés 'elejéről'.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Ennyi rekordot küld (take) maximum az API.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "2"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "field",
+                        "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "-cim"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "filter",
+                        "description": "Szűrő - a 'cim' és a 'leiras' mezőkben keressük.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "sport"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number",
+                                            "description": "A szűrőnek megfelelő rekordok száma",
+                                            "example": "16"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "description": "A maximum {limit} számú, szűrőnek megfelelő rekord.",
+                                            "items": {
+                                                "$ref": "#/components/schemas/user"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "post": {
+                "type": "object",
+                "required": ["title"],
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "description": "PK - A post azonosítója (ObjectID).",
+                        "example": "61b5f28df39e4edcf5b8a3e7"
+                    },
+                    "author": {
+                        "type": "string",
+                        "description": "FK - A post szerzője (ObjectID).",
+                        "example": "61b5e9c0f39e4edcf5b8a3b9"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "A post tartalma.",
+                        "example": "Frankie Dunn pályája során számos fantasztikus bunyóst edzett és menedzselt. Legfőbb tanítása, mely vezérli az életét is, hogy a legfontosabb az, hogy mindig védd magad. Mióta elidegenedett a lányától, Frankie jó ideje senkit sem engedett közel magához. Egyetlen barátja Hepaj, az egykori bokszoló, aki rendben tartja Frankie edzőtermét, és tudja, hogy a mogorva külső olyan embert takar, aki az elmúlt 23 évben szinte minden nap misére járt, keresve a megbocsátást, amely valahogy mégsem adatik meg neki. Aztán egy nap Maggie Fitzgerald besétál az edzőterembe. Maggie-nek sosem jutott sok semmiből, de van benne valami, ami csak keveseknek adatik meg: tudja, mit akar, és bármit hajlandó megtenni érte. Az élete állandó küzdelem, amit nyers tehetségével, kizökkenthetetlen koncentrálásával és elképesztő akaraterejével képes túlélni."
+                    },
+                    "title": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "A post címe címe.",
+                        "example": "Millió dolláros bébi 2004"
+                    }
+                }
+            },
+            "recipe": {
+                "type": "object",
+                "required": ["recipeName"],
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "description": "PK - A recept azonosítója (ObjectID).",
+                        "example": "61daf48ba5775848e99f555b"
+                    },
+                    "author": {
+                        "type": "string",
+                        "description": "FK - A recept szerzője (ObjectID).",
+                        "example": "61b5e9c0f39e4edcf5b8a3b9"
+                    },
+                    "recipeName": {
+                        "type": "string",
+                        "maxLength": 50,
+                        "description": "A recept neve.",
+                        "example": "PENNE ALL ARRABBIATA CSIRKEMELLEL"
+                    },
+                    "imageURL": {
+                        "type": "string",
+                        "description": "Az elkészült ételt ábrázoló kép URL címe.",
+                        "example": "https://www.mindmegette.hu/images/240/O/penne-arrabbiata-csirkes.jpg"
+                    },
+                    "decription": {
+                        "type": "string",
+                        "description": "Az étel elkészítésének leírása.",
+                        "example": "A tésztát a csomágolásán látható utasítás szerint forró, sós vízbe kifőzzük és leszűrjük. A finomra vágott hagymákat olajon megdinszteljük, majd hozzáadjuk a kockára vágott csirkemellet és fehéredésig pirítjuk. Sózzuk, borsozzuk, ráöntjük a paradicsomkonzervet és a vörösbort majd forrásig melegítjük.\nHozzáadjuk a chilit, a felaprított bazsalikomot, az oregánót, végül pedig a barnacukrot és 25-30 percig főzzük, míg a csirkemell meg nem puhul, majd összekeverjük a tésztával."
+                    },
+                    "ingredients": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A hozzávalókat tartalmazó tömb.",
+                        "example": "[\"50 dkg penne\", \"1 db vöröshagyma\", \"4 gerezd fokhagyma\", \"30 dkg\tcsirkemell\", \"só\", \"bors\", \"stb.\"]"
+                    }
+                }
+            },
+            "address": {
+                "type": "object",
+                "properties": {
+                    "street": {
+                        "type": "string",
+                        "description": "A közterület neve és száma.",
+                        "example": "Szent István út 7."
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "A település, ahol felhasználó lakik.",
+                        "example": "Győr"
+                    },
+                    "country": {
+                        "type": "string",
+                        "description": "Az ország, ahol a felhasználó él.",
+                        "example": "Hungary"
+                    }
+                }
+            },
+            "user": {
+                "type": "object",
+                "required": ["name", "email", "email_verified", "auto_login", "picture", "password", "roles"],
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "description": "PK - A felhasználó azonosítója (ObjectID).",
+                        "example": "61b5f0c1f39e4edcf5b8a3d8"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A felhasználó neve",
+                        "example": "student005"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "A felhasználó által használt e-mail cím a regisztráció során",
+                        "example": "student005@jedlik.eu"
+                    },
+                    "email_verified": {
+                        "type": "boolean",
+                        "description": "Igaz értékű, ha megadott e-mail-cím ellenőrzésre kerrült.",
+                        "example": true
+                    },
+                    "auto_login": {
+                        "type": "boolean",
+                        "description": "Igaz értékű, ha a felhasználónál be van kapcsolva az automatikus bejelentkezés.",
+                        "example": true
+                    },
+                    "picture": {
+                        "type": "string",
+                        "description": "A felhasználó avatarja/fényképe.",
+                        "example": "https://lh3.googleusercontent.com/a/ALm5wu1tqlumAaDE2djCuUE2s4ubsOs6HOkdwfU6ftci=s96-c"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "A felhasználó jelszavához tartozó hash-kód.",
+                        "example": "$2b$10$HBH36EkxhwwOcI7UM/Km3uHUcgwPJjleZYS9fqOgjIr.qmvTUlGPu"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "A szerepköröket tartalmazó tömb, mely szepköket megkapott a felhasználó.",
+                        "example": "[\"user\", \"admin\"]"
+                    },
+                    "address": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/address",
+                        "description": "A felhasználó lakcíme.",
+                        "example": true
+                    }
+                }
+            }
+        }
+    }
+}
