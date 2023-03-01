@@ -1118,6 +1118,46 @@
                         "example": true
                     }
                 }
+            },
+            "reservation": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "description": "PK - A foglalás azonosítója (ObjectID).",
+                        "example": "61daf48ba5775848e99f555b"
+                    },
+                    "idő": {
+                        "type": "string",
+                        "description": "Az időpont, amikor a tanárral le lehet ülni beszélni.",
+                        "example": "17:40"
+                    },
+                    "dátum": {
+                        "type": "string",
+                        "description": "A dátum, amikor rögzítve lett a foglalás.",
+                        "example": "2023.03.01."
+                    },
+                    "tanárID": {
+                        "type": "string",
+                        "description": "A kiválasztott tanár azonosítója.",
+                        "example": "8"
+                    }
+                }
+            },
+            "teacher": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "description": "PK - A tanár azonosítója (ObjectID).",
+                        "example": "4"
+                    },
+                    "név": {
+                        "type": "string",
+                        "description": "Az azonosítóhoz tartozó tanárnak a neve.",
+                        "example": "Teszt Elek"
+                    }
+                }
             }
         }
     }
