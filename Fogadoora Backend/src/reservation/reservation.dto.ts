@@ -1,4 +1,6 @@
-import { IsString, ValidateNested, IsDate } from "class-validator";
+import { Type } from "class-transformer";
+import { IsDate, IsString, ValidateNested } from "class-validator";
+
 import Reservation from "./reservation.interface";
 import CreateTeacherDto from "./teacher.dto";
 export default class CreateReservationDto implements Reservation {
@@ -9,5 +11,6 @@ export default class CreateReservationDto implements Reservation {
     public Dátum: string;
 
     @ValidateNested()
+    @Type(() => CreateTeacherDto)
     public tanárID: CreateTeacherDto;
 }

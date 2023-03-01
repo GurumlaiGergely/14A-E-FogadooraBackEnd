@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+import { model, Schema } from "mongoose";
+
 import Reservation from "./reservation.interface";
 
 const teacherSchema = new Schema(

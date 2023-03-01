@@ -1,20 +1,21 @@
-import { Router, Request, Response, NextFunction } from "express";
+import { NextFunction, Request, Response, Router } from "express";
 import { Types } from "mongoose";
+
+import HttpException from "../exceptions/HttpException";
+import IdNotValidException from "../exceptions/IdNotValidException";
+import ReservationNotFoundException from "../exceptions/ReservationNotFoundException";
 import IController from "../interfaces/controller.interface";
 import IRequestWithUser from "../interfaces/requestWithUser.interface";
 import authMiddleware from "../middleware/auth.middleware";
 import validationMiddleware from "../middleware/validation.middleware";
 import CreateReservationDto from "./reservation.dto";
-import ReservationNotFoundException from "../exceptions/ReservationNotFoundException";
-import IdNotValidException from "../exceptions/IdNotValidException";
-import HttpException from "../exceptions/HttpException";
-import reservationModel from "./reservation.model";
 import Reservation from "./reservation.interface";
+import reservationModel from "./reservation.model";
 
 export default class ReservationController implements IController {
-    public path = "/foglalasok";
+    public path = "/reservations";
     public router = Router();
-    private reservations = reservationModel;
+    private reservation = reservationModel;
 
     constructor() {
         this.initializeRoutes();
@@ -33,7 +34,7 @@ export default class ReservationController implements IController {
 
     private getAllReservations = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            this.reservations.find().then(reservations => {
+            this.reservation.find().then(reservations => {
                 res.send(reservations);
             });
         } catch (error) {
@@ -45,7 +46,7 @@ export default class ReservationController implements IController {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
-                const reservation = await this.reservations.findById(id).populate("tanárID");
+                const reservation = await this.reservation.findById(id).populate("tanárID");
                 if (reservation) {
                     res.send(reservation);
                 } else {
@@ -69,15 +70,15 @@ export default class ReservationController implements IController {
             let count = 0;
             if (req.params.keyword) {
                 const myRegex = new RegExp(req.params.keyword, "i"); // i for case insensitive
-                count = await this.reservations.find({ $or: [{ tanárID: myRegex }, { Idő: myRegex }] }).count();
-                reservations = await this.reservations
+                count = await this.reservation.find({ $or: [{ tanárID: myRegex }, { Idő: myRegex }] }).count();
+                reservations = await this.reservation
                     .find({ $or: [{ tanárID: myRegex }, { Idő: myRegex }] })
                     .sort(`${sort == -1 ? "-" : ""}${order}`)
                     .skip(offset)
                     .limit(limit);
             } else {
-                count = await this.reservations.countDocuments();
-                reservations = await this.reservations
+                count = await this.reservation.countDocuments();
+                reservations = await this.reservation
                     .find({})
                     .sort(`${sort == -1 ? "-" : ""}${order}`)
                     .skip(offset)
@@ -94,7 +95,7 @@ export default class ReservationController implements IController {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
                 const reservationData: Reservation = req.body;
-                const reservation = await this.reservations.findByIdAndUpdate(id, reservationData, { new: true });
+                const reservation = await this.reservation.findByIdAndUpdate(id, reservationData, { new: true });
                 if (reservation) {
                     res.send(reservation);
                 } else {
@@ -111,7 +112,7 @@ export default class ReservationController implements IController {
     private createReservations = async (req: IRequestWithUser, res: Response, next: NextFunction) => {
         try {
             const reservationData: Reservation = req.body;
-            const createdReservation = new this.reservations({
+            const createdReservation = new this.reservation({
                 ...reservationData,
             });
             const savedReservation = await createdReservation.save();
@@ -126,7 +127,7 @@ export default class ReservationController implements IController {
         try {
             const id = req.params.id;
             if (Types.ObjectId.isValid(id)) {
-                const successResponse = await this.reservations.findByIdAndDelete(id);
+                const successResponse = await this.reservation.findByIdAndDelete(id);
                 if (successResponse) {
                     res.sendStatus(200);
                 } else {
