@@ -27,7 +27,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/recipe"
+                                        "$ref": "#/components/schemas/reservation"
                                     }
                                 }
                             }
@@ -60,7 +60,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/recipe"
+                                "$ref": "#/components/schemas/reservation"
                             }
                         }
                     }
@@ -72,7 +72,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/recipe"
+                                    "$ref": "#/components/schemas/reservation"
                                 }
                             }
                         }
@@ -120,7 +120,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/recipe"
+                                    "$ref": "#/components/schemas/reservation"
                                 }
                             }
                         }
@@ -180,7 +180,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/recipe"
+                                "$ref": "#/components/schemas/reservation"
                             }
                         }
                     }
@@ -192,7 +192,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/recipe"
+                                    "$ref": "#/components/schemas/reservation"
                                 }
                             }
                         }
@@ -236,7 +236,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/recipe"
+                                "$ref": "#/components/schemas/reservation"
                             }
                         }
                     }
@@ -248,7 +248,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/recipe"
+                                    "$ref": "#/components/schemas/reservation"
                                 }
                             }
                         }
@@ -358,7 +358,7 @@
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/recipe"
+                                    "$ref": "#/components/schemas/reservation"
                                 }
                             }
                         }
@@ -1001,46 +1001,6 @@
                         "maxLength": 50,
                         "description": "A post címe címe.",
                         "example": "Millió dolláros bébi 2004"
-                    }
-                }
-            },
-            "recipe": {
-                "type": "object",
-                "required": ["recipeName"],
-                "properties": {
-                    "_id": {
-                        "type": "string",
-                        "description": "PK - A recept azonosítója (ObjectID).",
-                        "example": "61daf48ba5775848e99f555b"
-                    },
-                    "author": {
-                        "type": "string",
-                        "description": "FK - A recept szerzője (ObjectID).",
-                        "example": "61b5e9c0f39e4edcf5b8a3b9"
-                    },
-                    "recipeName": {
-                        "type": "string",
-                        "maxLength": 50,
-                        "description": "A recept neve.",
-                        "example": "PENNE ALL ARRABBIATA CSIRKEMELLEL"
-                    },
-                    "imageURL": {
-                        "type": "string",
-                        "description": "Az elkészült ételt ábrázoló kép URL címe.",
-                        "example": "https://www.mindmegette.hu/images/240/O/penne-arrabbiata-csirkes.jpg"
-                    },
-                    "decription": {
-                        "type": "string",
-                        "description": "Az étel elkészítésének leírása.",
-                        "example": "A tésztát a csomágolásán látható utasítás szerint forró, sós vízbe kifőzzük és leszűrjük. A finomra vágott hagymákat olajon megdinszteljük, majd hozzáadjuk a kockára vágott csirkemellet és fehéredésig pirítjuk. Sózzuk, borsozzuk, ráöntjük a paradicsomkonzervet és a vörösbort majd forrásig melegítjük.\nHozzáadjuk a chilit, a felaprított bazsalikomot, az oregánót, végül pedig a barnacukrot és 25-30 percig főzzük, míg a csirkemell meg nem puhul, majd összekeverjük a tésztával."
-                    },
-                    "ingredients": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "A hozzávalókat tartalmazó tömb.",
-                        "example": "[\"50 dkg penne\", \"1 db vöröshagyma\", \"4 gerezd fokhagyma\", \"30 dkg\tcsirkemell\", \"só\", \"bors\", \"stb.\"]"
                     }
                 }
             },
