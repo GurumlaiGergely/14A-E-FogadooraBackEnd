@@ -16,6 +16,6 @@ const teacherSchema = new Schema<Teacher>(
     { versionKey: false },
 );
 
-const teacherModel = model<Teacher>("Teacher", teacherSchema);
+const teacherModel = model<Teacher>("Teacher", teacherSchema, "tanarok");
 
 export default teacherModel;
