@@ -13,7 +13,7 @@ import Teacher from "./teacher.interface";
 import teacherModel from "./teacher.model";
 
 export default class TeacherController implements IController {
-    public path = "/api/teachers";
+    public path = "/teachers";
     public router = Router();
     private teacher = teacherModel;
 
@@ -83,7 +83,7 @@ export default class TeacherController implements IController {
                 ...teacherData,
             });
             const savedTeacher = await createdTeacher.save();
-            await savedTeacher.populate("tanárID");
+            await savedTeacher;
             res.send(savedTeacher);
         } catch (error) {
             next(new HttpException(400, error.message));

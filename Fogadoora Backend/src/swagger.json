@@ -14,7 +14,7 @@
         }
     ],
     "paths": {
-        "/api/reservations": {
+        "/reservations": {
             "get": {
                 "tags": ["reservations"],
                 "summary": "Összes foglalás lekérdezése.",
@@ -96,7 +96,7 @@
                 }
             }
         },
-        "/api/teachers": {
+        "/teachers": {
             "get": {
                 "tags": ["teachers"],
                 "summary": "Összes tanár lekérdezése.",
@@ -178,7 +178,7 @@
                 }
             }
         },
-        "/api/reservations/{id}": {
+        "/reservations/{id}": {
             "get": {
                 "tags": ["reservations"],
                 "summary": "Egy foglalás lekérdezése.",
@@ -401,7 +401,7 @@
                 }
             }
         },
-        "/api/teachers/{id}": {
+        "/teachers/{id}": {
             "get": {
                 "tags": ["teachers"],
                 "summary": "Egy tanár lekérdezése.",
@@ -624,7 +624,7 @@
                 }
             }
         },
-        "/api/reservations/order/:mezo": {
+        "/reservations/order/:mezo": {
             "get": {
                 "tags": ["reservations"],
                 "summary": "Összes foglalás lekérdezése rendezéssel.",
@@ -674,7 +674,7 @@
                 }
             }
         },
-        "/api/teachers/order/:mezo": {
+        "/teachers/order/:mezo": {
             "get": {
                 "tags": ["teachers"],
                 "summary": "Összes tanár lekérdezése rendezéssel.",
@@ -724,7 +724,7 @@
                 }
             }
         },
-        "/api/reservations/{offset}/{limit}/{field}": {
+        "/reservations/{offset}/{limit}/{field}": {
             "get": {
                 "tags": ["reservations"],
                 "summary": "Paginált adatok lekérése.",
@@ -805,7 +805,7 @@
                 }
             }
         },
-        "/api/teachers/{offset}/{limit}/{field}": {
+        "/teachers/{offset}/{limit}/{field}": {
             "get": {
                 "tags": ["teachers"],
                 "summary": "Paginált adatok lekérése.",
@@ -886,7 +886,7 @@
                 }
             }
         },
-        "/api/reservations/{offset}/{limit}/{field}/{filter}": {
+        "/reservations/{offset}/{limit}/{field}/{filter}": {
             "get": {
                 "tags": ["reservations"],
                 "summary": "Paginált adatok lekérése szűréssel.",
@@ -977,7 +977,7 @@
                 }
             }
         },
-        "/api/teachers/{offset}/{limit}/{field}/{filter}": {
+        "/teachers/{offset}/{limit}/{field}/{filter}": {
             "get": {
                 "tags": ["teachers"],
                 "summary": "Paginált adatok lekérése szűréssel.",
