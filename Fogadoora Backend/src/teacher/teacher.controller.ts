@@ -22,8 +22,8 @@ export default class TeacherController implements IController {
     }
 
     private initializeRoutes() {
-        this.router.get(`${this.path}/:id`, authMiddleware, this.getTeacherById);
         this.router.get(this.path, authMiddleware, this.getAllTeachers);
+        this.router.get(`${this.path}/:id`, authMiddleware, this.getTeacherById);
         this.router.post(this.path, [authMiddleware, validationMiddleware(CreateTeacherDto)], this.createTeacher);
         this.router.patch(`${this.path}/:id`, [authMiddleware, validationMiddleware(CreateTeacherDto, true)], this.modifyTeacher);
         this.router.delete(`${this.path}/:id`, authMiddleware, this.deleteTeacher);
@@ -42,7 +42,7 @@ export default class TeacherController implements IController {
     private getTeacherById = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (id) {
                 const teacher = await this.teacher.findById(id);
                 if (teacher) {
                     res.send(teacher);
@@ -93,7 +93,7 @@ export default class TeacherController implements IController {
     private deleteTeacher = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (id) {
                 const successResponse = await this.teacher.findByIdAndDelete(id);
                 if (successResponse) {
                     res.sendStatus(200);

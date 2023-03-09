@@ -1,5 +1,4 @@
-import { Types } from "mongoose";
 export default interface Teacher {
-    _id?: Types.ObjectId | string;
+    _id?: number;
     Név: string;
 }

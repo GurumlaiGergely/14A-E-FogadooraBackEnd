@@ -5,7 +5,7 @@ import Teacher from "./teacher.interface";
 const teacherSchema = new Schema<Teacher>(
     {
         _id: {
-            type: String,
+            type: Number,
         },
         Név: {
             type: String,
