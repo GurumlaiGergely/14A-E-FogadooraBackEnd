@@ -60,7 +60,7 @@ export default class TeacherController implements IController {
     private modifyTeacher = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            if (Types.ObjectId.isValid(id)) {
+            if (id) {
                 const teacherData: Teacher = req.body;
                 const teacher = await this.teacher.findByIdAndUpdate(id, teacherData, { new: true });
                 if (teacher) {
