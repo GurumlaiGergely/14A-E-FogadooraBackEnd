@@ -13,7 +13,7 @@ import Reservation from "./reservation.interface";
 import reservationModel from "./reservation.model";
 
 export default class ReservationController implements IController {
-    public path = "/reservations";
+    public path = "/api/reservations";
     public router = Router();
     private reservation = reservationModel;
 

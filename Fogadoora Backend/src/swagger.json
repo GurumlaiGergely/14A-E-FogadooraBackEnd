@@ -14,9 +14,9 @@
         }
     ],
     "paths": {
-        "/api/foglalasok": {
+        "/api/reservations": {
             "get": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Összes foglalás lekérdezése.",
                 "description": "Az összes foglalás adatát tudjuk lekérdezni.",
                 "responses": {
@@ -52,9 +52,9 @@
                 }
             },
             "post": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Új foglalás mentése.",
-                "description": "Az új foglalas mentése a foglalasok táblában",
+                "description": "Az új foglalas mentése a reservations táblában",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -96,9 +96,9 @@
                 }
             }
         },
-        "/api/tanarok": {
+        "/api/teachers": {
             "get": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Összes tanár lekérdezése.",
                 "description": "Az összes tanár adatát tudjuk lekérdezni.",
                 "responses": {
@@ -134,9 +134,9 @@
                 }
             },
             "post": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Új tanár mentése.",
-                "description": "Az új tanár mentése a tanarok táblában",
+                "description": "Az új tanár mentése a teachers táblában",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -178,9 +178,9 @@
                 }
             }
         },
-        "/api/foglalasok/{id}": {
+        "/api/reservations/{id}": {
             "get": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Egy foglalás lekérdezése.",
                 "description": "Az id paraméterben megadott foglalás adatait kérdezhetjük le.",
                 "parameters": [
@@ -243,7 +243,7 @@
             },
 
             "patch": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Foglalás módosítása (PATCH).",
                 "description": "A paraméterben megadott foglalás adatait módosítja a végpont.",
                 "parameters": [
@@ -299,7 +299,7 @@
                 }
             },
             "put": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Foglalás módosítása (PUT).",
                 "description": "A paraméterben megadott foglalás adatait módosítja a végpont.",
                 "parameters": [
@@ -355,7 +355,7 @@
                 }
             },
             "delete": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Foglalás törlése.",
                 "description": "A paraméterben megadott foglalást törli a végpont.",
                 "parameters": [
@@ -401,9 +401,9 @@
                 }
             }
         },
-        "/api/tanarok/{id}": {
+        "/api/teachers/{id}": {
             "get": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Egy tanár lekérdezése.",
                 "description": "Az id paraméterben megadott tanár adatait kérdezhetjük le.",
                 "parameters": [
@@ -466,7 +466,7 @@
             },
 
             "patch": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Tanár módosítása (PATCH).",
                 "description": "A paraméterben megadott tanár adatait módosítja a végpont.",
                 "parameters": [
@@ -522,7 +522,7 @@
                 }
             },
             "put": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Tanár módosítása (PUT).",
                 "description": "A paraméterben megadott tanár adatait módosítja a végpont.",
                 "parameters": [
@@ -578,7 +578,7 @@
                 }
             },
             "delete": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Tanár törlése.",
                 "description": "A paraméterben megadott tanárt törli a végpont.",
                 "parameters": [
@@ -624,9 +624,9 @@
                 }
             }
         },
-        "/api/foglalasok/order/:mezo": {
+        "/api/reservations/order/:mezo": {
             "get": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Összes foglalás lekérdezése rendezéssel.",
                 "description": "Az összes foglalás adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
                 "parameters": [
@@ -674,9 +674,9 @@
                 }
             }
         },
-        "/api/tanarok/order/:mezo": {
+        "/api/teachers/order/:mezo": {
             "get": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Összes tanár lekérdezése rendezéssel.",
                 "description": "Az összes tanár adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
                 "parameters": [
@@ -724,9 +724,9 @@
                 }
             }
         },
-        "/api/foglalasok/{offset}/{limit}/{field}": {
+        "/api/reservations/{offset}/{limit}/{field}": {
             "get": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Paginált adatok lekérése.",
                 "description": "Foglalások lekérdezése lapozáshoz.",
                 "parameters": [
@@ -805,9 +805,9 @@
                 }
             }
         },
-        "/api/tanarok/{offset}/{limit}/{field}": {
+        "/api/teachers/{offset}/{limit}/{field}": {
             "get": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Paginált adatok lekérése.",
                 "description": "Tanárok lekérdezése lapozáshoz.",
                 "parameters": [
@@ -886,9 +886,9 @@
                 }
             }
         },
-        "/api/foglalasok/{offset}/{limit}/{field}/{filter}": {
+        "/api/reservations/{offset}/{limit}/{field}/{filter}": {
             "get": {
-                "tags": ["foglalasok"],
+                "tags": ["reservations"],
                 "summary": "Paginált adatok lekérése szűréssel.",
                 "description": "Foglalások lekérdezése lapozáshoz szűréssel.",
                 "parameters": [
@@ -977,9 +977,9 @@
                 }
             }
         },
-        "/api/tanarok/{offset}/{limit}/{field}/{filter}": {
+        "/api/teachers/{offset}/{limit}/{field}/{filter}": {
             "get": {
-                "tags": ["tanarok"],
+                "tags": ["teachers"],
                 "summary": "Paginált adatok lekérése szűréssel.",
                 "description": "Tanárok lekérdezése lapozáshoz szűréssel.",
                 "parameters": [

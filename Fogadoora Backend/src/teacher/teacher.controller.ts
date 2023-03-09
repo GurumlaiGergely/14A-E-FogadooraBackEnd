@@ -13,7 +13,7 @@ import Teacher from "./teacher.interface";
 import teacherModel from "./teacher.model";
 
 export default class TeacherController implements IController {
-    public path = "/teachers";
+    public path = "/api/teachers";
     public router = Router();
     private teacher = teacherModel;
 
