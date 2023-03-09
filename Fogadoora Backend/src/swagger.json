@@ -96,6 +96,88 @@
                 }
             }
         },
+        "/api/tanarok": {
+            "get": {
+                "tags": ["tanarok"],
+                "summary": "Összes tanár lekérdezése.",
+                "description": "Az összes tanár adatát tudjuk lekérdezni.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/teacher"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["tanarok"],
+                "summary": "Új tanár mentése.",
+                "description": "Az új tanár mentése a tanarok táblában",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/teacher"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (Az új, elmentett tanár tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/teacher"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/foglalasok/{id}": {
             "get": {
                 "tags": ["foglalasok"],
@@ -159,6 +241,7 @@
                     }
                 }
             },
+
             "patch": {
                 "tags": ["foglalasok"],
                 "summary": "Foglalás módosítása (PATCH).",
@@ -318,6 +401,229 @@
                 }
             }
         },
+        "/api/tanarok/{id}": {
+            "get": {
+                "tags": ["tanarok"],
+                "summary": "Egy tanár lekérdezése.",
+                "description": "Az id paraméterben megadott tanár adatait kérdezhetjük le.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A tanár azonosítója.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 2
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/teacher"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Ezzel az azonosítóval (id) nincs tanár!"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
+            "patch": {
+                "tags": ["tanarok"],
+                "summary": "Tanár módosítása (PATCH).",
+                "description": "A paraméterben megadott tanár adatait módosítja a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A PATCH metódussal módosítandó tanár azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 3
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/teacher"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (A módosított tanárral tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/teacher"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott tanár (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": ["tanarok"],
+                "summary": "Tanár módosítása (PUT).",
+                "description": "A paraméterben megadott tanár adatait módosítja a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A PUT metódussal módosítandó tanár azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 3
+                        },
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/teacher"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (A módosított tanárral tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/teacher"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott tanár (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": ["tanarok"],
+                "summary": "Tanár törlése.",
+                "description": "A paraméterben megadott tanárt törli a végpont.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "description": "A törlendő tanár azonosítója (PK).",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": 99
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK (A tanár törölve.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "OK"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "A megadott tanár (id) nem létezik."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/foglalasok/order/:mezo": {
             "get": {
                 "tags": ["foglalasok"],
@@ -344,6 +650,56 @@
                                     "type": "array",
                                     "items": {
                                         "$ref": "#/components/schemas/reservation"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tanarok/order/:mezo": {
+            "get": {
+                "tags": ["tanarok"],
+                "summary": "Összes tanár lekérdezése rendezéssel.",
+                "description": "Az összes tanár adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
+                "parameters": [
+                    {
+                        "name": "mezo",
+                        "description": "Mező, amely szerint rendezni kell, a '-' karakter a mező neve előtt a csökkenő rendezést kódolja.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "-arFt"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/teacher"
                                     }
                                 }
                             }
@@ -423,6 +779,87 @@
                                             "description": "A maximum {limit} számú rekord.",
                                             "items": {
                                                 "$ref": "#/components/schemas/reservation"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tanarok/{offset}/{limit}/{field}": {
+            "get": {
+                "tags": ["tanarok"],
+                "summary": "Paginált adatok lekérése.",
+                "description": "Tanárok lekérdezése lapozáshoz.",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "description": "Ennyi rekordot hagyunk el (skip) a lekérdezés 'elejéről'.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Ennyi rekordot küld (take) maximum az API",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "5"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "field",
+                        "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "-cim"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number",
+                                            "description": "Az összes rekord száma.",
+                                            "example": "16"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "description": "A maximum {limit} számú rekord.",
+                                            "items": {
+                                                "$ref": "#/components/schemas/teacher"
                                             }
                                         }
                                     }
@@ -539,112 +976,101 @@
                     }
                 }
             }
+        },
+        "/api/tanarok/{offset}/{limit}/{field}/{filter}": {
+            "get": {
+                "tags": ["tanarok"],
+                "summary": "Paginált adatok lekérése szűréssel.",
+                "description": "Tanárok lekérdezése lapozáshoz szűréssel.",
+                "parameters": [
+                    {
+                        "name": "offset",
+                        "description": "Ennyi rekordot hagyunk el (skip) a lekérdezés 'elejéről'.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "0"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "limit",
+                        "description": "Ennyi rekordot küld (take) maximum az API.",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "2"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "field",
+                        "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "-cim"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "filter",
+                        "description": "Szűrő - a 'cim' és a 'leiras' mezőkben keressük.",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "sport"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "count": {
+                                            "type": "number",
+                                            "description": "A szűrőnek megfelelő rekordok száma",
+                                            "example": "16"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "description": "A maximum {limit} számú, szűrőnek megfelelő rekord.",
+                                            "items": {
+                                                "$ref": "#/components/schemas/teacher"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
         "schemas": {
-            "post": {
-                "type": "object",
-                "required": ["title"],
-                "properties": {
-                    "_id": {
-                        "type": "string",
-                        "description": "PK - A post azonosítója (ObjectID).",
-                        "example": "61b5f28df39e4edcf5b8a3e7"
-                    },
-                    "author": {
-                        "type": "string",
-                        "description": "FK - A post szerzője (ObjectID).",
-                        "example": "61b5e9c0f39e4edcf5b8a3b9"
-                    },
-                    "content": {
-                        "type": "string",
-                        "description": "A post tartalma.",
-                        "example": "Frankie Dunn pályája során számos fantasztikus bunyóst edzett és menedzselt. Legfőbb tanítása, mely vezérli az életét is, hogy a legfontosabb az, hogy mindig védd magad. Mióta elidegenedett a lányától, Frankie jó ideje senkit sem engedett közel magához. Egyetlen barátja Hepaj, az egykori bokszoló, aki rendben tartja Frankie edzőtermét, és tudja, hogy a mogorva külső olyan embert takar, aki az elmúlt 23 évben szinte minden nap misére járt, keresve a megbocsátást, amely valahogy mégsem adatik meg neki. Aztán egy nap Maggie Fitzgerald besétál az edzőterembe. Maggie-nek sosem jutott sok semmiből, de van benne valami, ami csak keveseknek adatik meg: tudja, mit akar, és bármit hajlandó megtenni érte. Az élete állandó küzdelem, amit nyers tehetségével, kizökkenthetetlen koncentrálásával és elképesztő akaraterejével képes túlélni."
-                    },
-                    "title": {
-                        "type": "string",
-                        "maxLength": 50,
-                        "description": "A post címe címe.",
-                        "example": "Millió dolláros bébi 2004"
-                    }
-                }
-            },
-            "address": {
-                "type": "object",
-                "properties": {
-                    "street": {
-                        "type": "string",
-                        "description": "A közterület neve és száma.",
-                        "example": "Szent István út 7."
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "A település, ahol felhasználó lakik.",
-                        "example": "Győr"
-                    },
-                    "country": {
-                        "type": "string",
-                        "description": "Az ország, ahol a felhasználó él.",
-                        "example": "Hungary"
-                    }
-                }
-            },
-            "user": {
-                "type": "object",
-                "required": ["name", "email", "email_verified", "auto_login", "picture", "password", "roles"],
-                "properties": {
-                    "_id": {
-                        "type": "string",
-                        "description": "PK - A felhasználó azonosítója (ObjectID).",
-                        "example": "61b5f0c1f39e4edcf5b8a3d8"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "A felhasználó neve",
-                        "example": "student005"
-                    },
-                    "email": {
-                        "type": "string",
-                        "description": "A felhasználó által használt e-mail cím a regisztráció során",
-                        "example": "student005@jedlik.eu"
-                    },
-                    "email_verified": {
-                        "type": "boolean",
-                        "description": "Igaz értékű, ha megadott e-mail-cím ellenőrzésre kerrült.",
-                        "example": true
-                    },
-                    "auto_login": {
-                        "type": "boolean",
-                        "description": "Igaz értékű, ha a felhasználónál be van kapcsolva az automatikus bejelentkezés.",
-                        "example": true
-                    },
-                    "picture": {
-                        "type": "string",
-                        "description": "A felhasználó avatarja/fényképe.",
-                        "example": "https://lh3.googleusercontent.com/a/ALm5wu1tqlumAaDE2djCuUE2s4ubsOs6HOkdwfU6ftci=s96-c"
-                    },
-                    "password": {
-                        "type": "string",
-                        "description": "A felhasználó jelszavához tartozó hash-kód.",
-                        "example": "$2b$10$HBH36EkxhwwOcI7UM/Km3uHUcgwPJjleZYS9fqOgjIr.qmvTUlGPu"
-                    },
-                    "roles": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "description": "A szerepköröket tartalmazó tömb, mely szepköket megkapott a felhasználó.",
-                        "example": "[\"user\", \"admin\"]"
-                    },
-                    "address": {
-                        "type": "object",
-                        "$ref": "#/components/schemas/address",
-                        "description": "A felhasználó lakcíme.",
-                        "example": true
-                    }
-                }
-            },
             "reservation": {
                 "type": "object",
                 "properties": {
