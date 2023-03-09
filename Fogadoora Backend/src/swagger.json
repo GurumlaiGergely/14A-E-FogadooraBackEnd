@@ -1067,10 +1067,53 @@
                     }
                 }
             }
+        },
+        "/login": {
+            "get": {
+                "description": "",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
         }
     },
     "components": {
         "schemas": {
+            "user": {
+                "type": "object",
+                "required": ["name", "email", "email_verified", "auto_login", "picture", "password", "roles"],
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "description": "PK - A felhasználó azonosítója (ObjectID).",
+                        "example": "61b5f0c1f39e4edcf5b8a3d8"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "A felhasználó neve",
+                        "example": "student005"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "A felhasználó által használt e-mail cím a regisztráció során",
+                        "example": "student005@jedlik.eu"
+                    },
+                    "email_verified": {
+                        "type": "boolean",
+                        "description": "Igaz értékű, ha megadott e-mail-cím ellenőrzésre kerrült.",
+                        "example": true
+                    },
+                    "auto_login": {
+                        "type": "boolean",
+                        "description": "Igaz értékű, ha a felhasználónál be van kapcsolva az automatikus bejelentkezés.",
+                        "example": true
+                    }
+                }
+            },
+
             "reservation": {
                 "type": "object",
                 "properties": {
