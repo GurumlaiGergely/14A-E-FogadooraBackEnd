@@ -5,8 +5,7 @@ import Teacher from "./teacher.interface";
 const teacherSchema = new Schema<Teacher>(
     {
         _id: {
-            ref: "reservation",
-            type: Schema.Types.ObjectId,
+            type: String,
         },
         Név: {
             type: String,
@@ -16,6 +15,6 @@ const teacherSchema = new Schema<Teacher>(
     { versionKey: false },
 );
 
-const teacherModel = model<Teacher>("Teacher", teacherSchema, "tanarok");
+const teacherModel = model<Teacher>("teacher", teacherSchema, "teachers");
 
 export default teacherModel;
