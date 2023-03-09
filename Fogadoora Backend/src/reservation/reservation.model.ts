@@ -27,6 +27,6 @@ const reservationSchema = new Schema<Reservation>(
     { versionKey: false },
 );
 
-const reservationModel = model<Reservation>("Reservation", reservationSchema);
+const reservationModel = model<Reservation>("reservation", reservationSchema, "foglalasok");
 
 export default reservationModel;
