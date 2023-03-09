@@ -334,19 +334,101 @@
                 }
             }
         },
-        "/api/posts/{kategoriaNev}/hirdetesek": {
+        "/api/foglalasok": {
             "get": {
-                "tags": ["posts"],
-                "summary": "receptek lekérdezése postnév szerint.",
-                "description": "A 'kategoriaNev' paraméterben megadott kategóriával és a post összes receptével tér vissza a végpont.",
+                "tags": ["foglalasok"],
+                "summary": "Összes foglalás lekérdezése.",
+                "description": "Az összes foglalás adatát tudjuk lekérdezni.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/reservation"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": ["foglalasok"],
+                "summary": "Új foglalás mentése.",
+                "description": "Az új foglalas mentése a foglalasok táblában",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/reservation"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (Az új, elmentett foglalással tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/reservation"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "error.message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/foglalasok/{id}": {
+            "get": {
+                "tags": ["foglalasok"],
+                "summary": "Egy foglalás lekérdezése.",
+                "description": "Az id paraméterben megadott foglalás adatait kérdezhetjük le.",
                 "parameters": [
                     {
-                        "name": "kategoriaNev",
-                        "description": "A post neve.",
+                        "name": "id",
+                        "description": "A foglalás azonosítója.",
                         "in": "path",
                         "schema": {
-                            "type": "string",
-                            "example": "Személyautó"
+                            "type": "number",
+                            "example": 2
                         },
                         "required": true
                     }
@@ -388,153 +470,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "Ebben a kategóriában (Monocikli) nem találtam receptt!"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/recipes": {
-            "get": {
-                "tags": ["recipes"],
-                "summary": "Összes recept lekérdezése.",
-                "description": "Az összes recept adatát tudjuk lekérdezni.",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/user"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": ["recipes"],
-                "summary": "Új recept mentése.",
-                "description": "Az új recept mentése a 'hirdetesek' táblában",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "$ref": "#/components/schemas/user"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK (Az új, elmentett recepttel tér vissza.)",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "$ref": "#/components/schemas/user"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/recipes/{id}": {
-            "get": {
-                "tags": ["recipes"],
-                "summary": "Egy recept lekérdezése.",
-                "description": "Az id paraméterben megadott recept adatait kérdezhetjük le.",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "description": "A recept azonosítója.",
-                        "in": "path",
-                        "schema": {
-                            "type": "number",
-                            "example": 2
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "$ref": "#/components/schemas/user"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Not Found",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Ezzel az azonosítóval (id) nincs recept!"
+                                            "example": "Ezzel az azonosítóval (id) nincs foglalás!"
                                         }
                                     }
                                 }
@@ -544,13 +480,13 @@
                 }
             },
             "patch": {
-                "tags": ["recipes"],
-                "summary": "recept módosítása (PATCH).",
-                "description": "A paraméterben megadott recept adatait módosítja a végpont.",
+                "tags": ["foglalasok"],
+                "summary": "Foglalás módosítása (PATCH).",
+                "description": "A paraméterben megadott foglalás adatait módosítja a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A PATCH metódussal módosítandó recept azonosítója (PK).",
+                        "description": "A PATCH metódussal módosítandó foglalás azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -564,19 +500,19 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/user"
+                                "$ref": "#/components/schemas/reservation"
                             }
                         }
                     }
                 },
                 "responses": {
                     "200": {
-                        "description": "OK (A módosított receptsel tér vissza.)",
+                        "description": "OK (A módosított foglalással tér vissza.)",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/user"
+                                    "$ref": "#/components/schemas/reservation"
                                 }
                             }
                         }
@@ -590,7 +526,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott recept (id) nem létezik."
+                                            "example": "A megadott foglalás (id) nem létezik."
                                         }
                                     }
                                 }
@@ -600,13 +536,13 @@
                 }
             },
             "put": {
-                "tags": ["recipes"],
-                "summary": "recept módosítása (PUT).",
-                "description": "A paraméterben megadott recept adatait módosítja a végpont.",
+                "tags": ["foglalasok"],
+                "summary": "Foglalás módosítása (PUT).",
+                "description": "A paraméterben megadott foglalás adatait módosítja a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A PUT metódussal módosítandó recept azonosítója (PK).",
+                        "description": "A PUT metódussal módosítandó foglalás azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -620,19 +556,19 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "$ref": "#/components/schemas/user"
+                                "$ref": "#/components/schemas/reservation"
                             }
                         }
                     }
                 },
                 "responses": {
                     "200": {
-                        "description": "OK (A módosított receptsel tér vissza.)",
+                        "description": "OK (A módosított foglalással tér vissza.)",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "type": "object",
-                                    "$ref": "#/components/schemas/user"
+                                    "$ref": "#/components/schemas/reservation"
                                 }
                             }
                         }
@@ -646,7 +582,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott recept (id) nem létezik."
+                                            "example": "A megadott foglalás (id) nem létezik."
                                         }
                                     }
                                 }
@@ -656,13 +592,13 @@
                 }
             },
             "delete": {
-                "tags": ["recipes"],
-                "summary": "recept törlése.",
-                "description": "A paraméterben megadott receptt törli a végpont.",
+                "tags": ["foglalasok"],
+                "summary": "Foglalás törlése.",
+                "description": "A paraméterben megadott foglalást törli a végpont.",
                 "parameters": [
                     {
                         "name": "id",
-                        "description": "A törlendő recept azonosítója (PK).",
+                        "description": "A törlendő foglalás azonosítója (PK).",
                         "in": "path",
                         "schema": {
                             "type": "number",
@@ -673,7 +609,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK (A recept törölve.)",
+                        "description": "OK (A foglalás törölve.)",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -692,7 +628,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "A megadott recept (id) nem létezik."
+                                            "example": "A megadott foglalás (id) nem létezik."
                                         }
                                     }
                                 }
@@ -702,11 +638,11 @@
                 }
             }
         },
-        "/api/recipes/order/:mezo": {
+        "/api/foglalasok/order/:mezo": {
             "get": {
-                "tags": ["recipes"],
-                "summary": "Összes recept lekérdezése rendezéssel.",
-                "description": "Az összes recept adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
+                "tags": ["foglalasok"],
+                "summary": "Összes foglalás lekérdezése rendezéssel.",
+                "description": "Az összes foglalás adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
                 "parameters": [
                     {
                         "name": "mezo",
@@ -727,7 +663,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/user"
+                                        "$ref": "#/components/schemas/reservation"
                                     }
                                 }
                             }
@@ -752,61 +688,11 @@
                 }
             }
         },
-        "/api/recipes/keyword/{keyword}": {
+        "/api/foglalasok/{offset}/{limit}/{field}": {
             "get": {
-                "tags": ["recipes"],
-                "summary": "Kulcsszavas szűrés mindkét táblából.",
-                "description": "Azok a receptek, melyek leírásában, vagy postnevében megtalálható a megadott kulcsszó.",
-                "parameters": [
-                    {
-                        "name": "keyword",
-                        "description": "Kulcsszó, melyet keresünk a mezőkben (bárhol lehet egy-egy mezőn belül, OR kapcsolat).",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "gép"
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/user"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/api/recipes/{offset}/{limit}/{field}": {
-            "get": {
-                "tags": ["recipes"],
+                "tags": ["foglalasok"],
                 "summary": "Paginált adatok lekérése.",
-                "description": "receptek lekérdezése lapozáshoz.",
+                "description": "Foglalások lekérdezése lapozáshoz.",
                 "parameters": [
                     {
                         "name": "offset",
@@ -856,7 +742,7 @@
                                             "type": "array",
                                             "description": "A maximum {limit} számú rekord.",
                                             "items": {
-                                                "$ref": "#/components/schemas/user"
+                                                "$ref": "#/components/schemas/reservation"
                                             }
                                         }
                                     }
@@ -883,11 +769,11 @@
                 }
             }
         },
-        "/api/recipes/{offset}/{limit}/{field}/{filter}": {
+        "/api/foglalasok/{offset}/{limit}/{field}/{filter}": {
             "get": {
-                "tags": ["recipes"],
+                "tags": ["foglalasok"],
                 "summary": "Paginált adatok lekérése szűréssel.",
-                "description": "receptek lekérdezése lapozáshoz szűréssel.",
+                "description": "Foglalások lekérdezése lapozáshoz szűréssel.",
                 "parameters": [
                     {
                         "name": "offset",
@@ -947,7 +833,7 @@
                                             "type": "array",
                                             "description": "A maximum {limit} számú, szűrőnek megfelelő rekord.",
                                             "items": {
-                                                "$ref": "#/components/schemas/user"
+                                                "$ref": "#/components/schemas/reservation"
                                             }
                                         }
                                     }
