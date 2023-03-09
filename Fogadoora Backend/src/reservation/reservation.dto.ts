@@ -1,8 +1,8 @@
 import { Type } from "class-transformer";
 import { IsDate, IsString, ValidateNested } from "class-validator";
 
+import CreateTeacherDto from "../teacher/teacher.dto";
 import Reservation from "./reservation.interface";
-import CreateTeacherDto from "./teacher.dto";
 export default class CreateReservationDto implements Reservation {
     @IsString()
     public Idő: string;
