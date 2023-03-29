@@ -6,10 +6,10 @@
     },
     "servers": [
         {
-            "url": "http://localhost:5000"
+            "url": "https://fogadoora.cyclic.app"
         },
         {
-            "url": "https://council-fogadoora.cyclic.app"
+            "url": "http://localhost:5000"
         }
     ],
     "paths": {
