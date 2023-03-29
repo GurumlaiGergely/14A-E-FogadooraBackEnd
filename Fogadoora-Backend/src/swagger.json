@@ -1,16 +1,15 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "REST API minta backend",
-        "version": "1.0.0",
-        "description": "<img alt='HaHu' height='400px' src='https://nitslaszlo.github.io/static/hahu/Hahu.jpg' />"
+        "title": "Fogadóóra Backend",
+        "version": "1.0.0"
     },
     "servers": [
         {
             "url": "http://localhost:5000"
         },
         {
-            "url": "https://jedlik.cyclic.app"
+            "url": "https://council-fogadoora.cyclic.app"
         }
     ],
     "paths": {
