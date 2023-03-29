@@ -1067,13 +1067,148 @@
                 }
             }
         },
-        "/login": {
-            "get": {
-                "description": "",
-                "parameters": [],
+        "/auth/login": {
+            "post": {
+                "tags": ["authentication"],
+                "summary": "Bejelentkezés",
+                "description": "Bejelentkezés a megadott felhasználói adatokkal.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "example": {
+                                "email": "student001@jedlik.eu",
+                                "password": "student001"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "number",
+                                            "example": 401
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Wrong credentials provided"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": ["authentication"],
+                "summary": "Kijelentkezés",
+                "description": "Kijelentkezés. Kliens süti-token érvénytelenítése.",
                 "responses": {
                     "200": {
                         "description": "OK"
+                    }
+                }
+            }
+        },
+        "/auth/register": {
+            "post": {
+                "tags": ["authentication"],
+                "summary": "Regisztráció",
+                "description": "Regisztráció a megadott adattokkal.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK (Az új, elmentett felhasználó adataival tér vissza.)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/auth/autologin": {
+            "post": {
+                "tags": ["authentication"],
+                "summary": "Bejelentkezés érvényes tokennel",
+                "description": "Bejelentkezés, ha a böngészőben tárolt süti még nem járt le.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "number",
+                                            "example": 401
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Please log in!"
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
