@@ -623,106 +623,6 @@
                 }
             }
         },
-        "/reservations/order/:mezo": {
-            "get": {
-                "tags": ["reservations"],
-                "summary": "Összes foglalás lekérdezése rendezéssel.",
-                "description": "Az összes foglalás adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
-                "parameters": [
-                    {
-                        "name": "mezo",
-                        "description": "Mező, amely szerint rendezni kell, a '-' karakter a mező neve előtt a csökkenő rendezést kódolja.",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "-arFt"
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/reservation"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/teachers/order/:mezo": {
-            "get": {
-                "tags": ["teachers"],
-                "summary": "Összes tanár lekérdezése rendezéssel.",
-                "description": "Az összes tanár adatát tudjuk lekérdezni és a paraméterben megadott mező szerint rendezni.",
-                "parameters": [
-                    {
-                        "name": "mezo",
-                        "description": "Mező, amely szerint rendezni kell, a '-' karakter a mező neve előtt a csökkenő rendezést kódolja.",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "-arFt"
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/components/schemas/teacher"
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/reservations/{offset}/{limit}/{field}": {
             "get": {
                 "tags": ["reservations"],
@@ -749,13 +649,34 @@
                         },
                         "required": true
                     },
+
                     {
-                        "name": "field",
+                        "name": "order",
                         "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
                         "in": "path",
                         "schema": {
                             "type": "string",
                             "example": "-cim"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "sort",
+                        "description": "Milyen sorrendben jelenjenek meg a rekordok. 1: Növekvő, -1: Csökkenő",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "-1"
+                        },
+                        "required": true
+                    },
+                    {
+                        "name": "keyword",
+                        "description": "Milyen kulcsszó alapján keressük a rekordokat",
+                        "in": "path",
+                        "schema": {
+                            "type": "number",
+                            "example": "-1"
                         },
                         "required": true
                     }
@@ -778,269 +699,6 @@
                                             "description": "A maximum {limit} számú rekord.",
                                             "items": {
                                                 "$ref": "#/components/schemas/reservation"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/teachers/{offset}/{limit}/{field}": {
-            "get": {
-                "tags": ["teachers"],
-                "summary": "Paginált adatok lekérése.",
-                "description": "Tanárok lekérdezése lapozáshoz.",
-                "parameters": [
-                    {
-                        "name": "offset",
-                        "description": "Ennyi rekordot hagyunk el (skip) a lekérdezés 'elejéről'.",
-                        "in": "path",
-                        "schema": {
-                            "type": "number",
-                            "example": "5"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "limit",
-                        "description": "Ennyi rekordot küld (take) maximum az API",
-                        "in": "path",
-                        "schema": {
-                            "type": "number",
-                            "example": "5"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "field",
-                        "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "-cim"
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "count": {
-                                            "type": "number",
-                                            "description": "Az összes rekord száma.",
-                                            "example": "16"
-                                        },
-                                        "data": {
-                                            "type": "array",
-                                            "description": "A maximum {limit} számú rekord.",
-                                            "items": {
-                                                "$ref": "#/components/schemas/teacher"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/reservations/{offset}/{limit}/{field}/{filter}": {
-            "get": {
-                "tags": ["reservations"],
-                "summary": "Paginált adatok lekérése szűréssel.",
-                "description": "Foglalások lekérdezése lapozáshoz szűréssel.",
-                "parameters": [
-                    {
-                        "name": "offset",
-                        "description": "Ennyi rekordot hagyunk el (skip) a lekérdezés 'elejéről'.",
-                        "in": "path",
-                        "schema": {
-                            "type": "number",
-                            "example": "0"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "limit",
-                        "description": "Ennyi rekordot küld (take) maximum az API.",
-                        "in": "path",
-                        "schema": {
-                            "type": "number",
-                            "example": "2"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "field",
-                        "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "-cim"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "filter",
-                        "description": "Szűrő - a 'cim' és a 'leiras' mezőkben keressük.",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "sport"
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "count": {
-                                            "type": "number",
-                                            "description": "A szűrőnek megfelelő rekordok száma",
-                                            "example": "16"
-                                        },
-                                        "data": {
-                                            "type": "array",
-                                            "description": "A maximum {limit} számú, szűrőnek megfelelő rekord.",
-                                            "items": {
-                                                "$ref": "#/components/schemas/reservation"
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "error.message"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/teachers/{offset}/{limit}/{field}/{filter}": {
-            "get": {
-                "tags": ["teachers"],
-                "summary": "Paginált adatok lekérése szűréssel.",
-                "description": "Tanárok lekérdezése lapozáshoz szűréssel.",
-                "parameters": [
-                    {
-                        "name": "offset",
-                        "description": "Ennyi rekordot hagyunk el (skip) a lekérdezés 'elejéről'.",
-                        "in": "path",
-                        "schema": {
-                            "type": "number",
-                            "example": "0"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "limit",
-                        "description": "Ennyi rekordot küld (take) maximum az API.",
-                        "in": "path",
-                        "schema": {
-                            "type": "number",
-                            "example": "2"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "field",
-                        "description": "Melyik mező szerint legyenek rendezve a rekordok. A kötőjel '-' karakter a csökkenő rendezést jelöli.",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "-cim"
-                        },
-                        "required": true
-                    },
-                    {
-                        "name": "filter",
-                        "description": "Szűrő - a 'cim' és a 'leiras' mezőkben keressük.",
-                        "in": "path",
-                        "schema": {
-                            "type": "string",
-                            "example": "sport"
-                        },
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "count": {
-                                            "type": "number",
-                                            "description": "A szűrőnek megfelelő rekordok száma",
-                                            "example": "16"
-                                        },
-                                        "data": {
-                                            "type": "array",
-                                            "description": "A maximum {limit} számú, szűrőnek megfelelő rekord.",
-                                            "items": {
-                                                "$ref": "#/components/schemas/teacher"
                                             }
                                         }
                                     }
