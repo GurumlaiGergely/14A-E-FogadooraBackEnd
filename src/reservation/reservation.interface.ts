@@ -1,10 +1,7 @@
-import { Types } from "mongoose";
-
+import { Schema } from "mongoose";
 export default interface Reservation {
-    _id?: Types.ObjectId | string;
+    _id?: Schema.Types.ObjectId;
     Idő: string;
     Dátum: string;
-    tanárID: {
-        Név: string;
-    };
+    tanárID?: number;
 }

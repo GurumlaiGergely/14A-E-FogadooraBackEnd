@@ -2,19 +2,13 @@ import { model, Schema } from "mongoose";
 
 import Reservation from "./reservation.interface";
 
-const teacherSchema = new Schema(
-    {
-        Név: {
-            type: String,
-            required: true,
-        },
-    },
-    { versionKey: false },
-);
-
 const reservationSchema = new Schema<Reservation>(
     {
-        tanárID: teacherSchema,
+        _id: Schema.Types.ObjectId,
+        tanárID: {
+            ref: "teacher",
+            type: Number,
+        },
         Idő: {
             type: String,
             required: true,

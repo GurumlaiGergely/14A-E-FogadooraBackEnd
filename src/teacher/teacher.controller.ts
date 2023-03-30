@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response, Router } from "express";
-import { Types } from "mongoose";
 
 import HttpException from "../exceptions/HttpException";
 import IdNotValidException from "../exceptions/IdNotValidException";

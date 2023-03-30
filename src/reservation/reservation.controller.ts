@@ -73,6 +73,7 @@ export default class ReservationController implements IController {
                 count = await this.reservation.find({ $or: [{ tanárID: myRegex }, { Idő: myRegex }] }).count();
                 reservations = await this.reservation
                     .find({ $or: [{ tanárID: myRegex }, { Idő: myRegex }] })
+                    .populate("tanárID", "-_id")
                     .sort(`${sort == -1 ? "-" : ""}${order}`)
                     .skip(offset)
                     .limit(limit);
@@ -80,6 +81,7 @@ export default class ReservationController implements IController {
                 count = await this.reservation.countDocuments();
                 reservations = await this.reservation
                     .find({})
+                    .populate("tanárID", "-_id")
                     .sort(`${sort == -1 ? "-" : ""}${order}`)
                     .skip(offset)
                     .limit(limit);

@@ -1,7 +1,6 @@
-import { Type } from "class-transformer";
-import { IsDate, IsString, ValidateNested } from "class-validator";
+import { IsMongoId, IsOptional, IsString } from "class-validator";
+import { Schema } from "mongoose";
 
-import CreateTeacherDto from "../teacher/teacher.dto";
 import Reservation from "./reservation.interface";
 export default class CreateReservationDto implements Reservation {
     @IsString()
@@ -10,7 +9,7 @@ export default class CreateReservationDto implements Reservation {
     @IsString()
     public Dátum: string;
 
-    @ValidateNested()
-    @Type(() => CreateTeacherDto)
-    public tanárID: CreateTeacherDto;
+    @IsMongoId()
+    @IsOptional()
+    public _id: Schema.Types.ObjectId;
 }
